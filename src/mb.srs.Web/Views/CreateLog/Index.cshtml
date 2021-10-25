@@ -1,0 +1,91 @@
+﻿@{
+    ViewData["Title"] = "Create a Pandemic Report";
+}
+
+@model mb.srs.Web.ViewModels.CreateLogViewModel
+
+<h2>Add a pandemic log</h2>
+
+
+
+<div class="row d-flex justify-content-center">
+    <div class="col-md-4">
+        <form asp-controller="CreateLog" asp-action="Create" method="post" class="form-floating">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-floating mb-3">                
+                <select asp-for="Type" class="form-control">
+                    <option value="">-- Select --</option>
+                    <option value="covid-19">Covid 19</option>
+                </select>
+                <label asp-for="Type" class="control-label"></label>
+                <span asp-validation-for="Type" class="text-danger" />
+            </div>
+            <div class="form-floating mb-3">                
+                <input type="date" asp-for="IncidentDate" class="form-control" placeholder="Indident Date"/>
+                <label asp-for="IncidentDate" class="control-label"></label>
+                <span asp-validation-for="IncidentDate" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">                
+                <input type="date" asp-for="ReportedDate" class="form-control" placeholder="Reported Date"/>
+                <label asp-for="ReportedDate" class="control-label"></label>
+                <span asp-validation-for="ReportedDate" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">        
+                <input asp-for="DepartmentId" type="hidden" />
+                <input asp-for="DepartmentName" placeholder="Department" class="form-control" />
+                <label asp-for="DepartmentName" ></label>
+                <span asp-validation-for="DepartmentName" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">                
+                <input asp-for="Manager" class="form-control" placeholder="Manager"/>
+                <label asp-for="Manager" class="control-label"></label>
+                <span asp-validation-for="Manager" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">                
+                <input asp-for="JobTitle" class="form-control" placeholder="Job Title"/>
+                <label asp-for="JobTitle" class="control-label"></label>
+                <span asp-validation-for="JobTitle" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">                
+                <select asp-for="Circumstances" class="form-control">
+                    <option value="">-- Select --</option>
+                    <option value="1">Symptomatic</option>
+                    <option value="2">Direct Contact At Work</option>
+                    <option value="3">Direct Contact Away From Work</option>
+                    <option value="4">Vaccinated</option>
+                </select>
+                <label asp-for="Circumstances" class="control-label"></label>
+                <span asp-validation-for="Circumstances" class="text-danger" />
+            </div>
+            <div class="form-floating mb-3">                
+                <select asp-for="Tested" class="form-control">
+                    <option value="">-- Select --</option>
+                    <option value="1">Not Tested</option>
+                    <option value="2">Pending</option>
+                    <option value="3">Negative</option>
+                    <option value="4">Positive</option>
+                </select>
+                <label asp-for="Tested" class="control-label"></label>
+                <span asp-validation-for="Tested" class="text-danger" />
+            </div>
+            <div class="form-check form-switch mb-3">                
+                <input type="checkbox" value="false" asp-for="FullyVaccinated" class="form-check-input"/>
+                <label asp-for="FullyVaccinated" class="form-check-label"></label>
+                <span asp-validation-for="FullyVaccinated" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">                
+                <input type="date" asp-for="FirstDose" class="form-control" placeholder="First Dose"/>
+                <label asp-for="FirstDose" class="control-label"></label>
+                <span asp-validation-for="FirstDose" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">                
+                <input type="date" asp-for="SecondDose" class="form-control" placeholder="Second Dose"/>
+                <label asp-for="SecondDose" class="control-label"></label>
+                <span asp-validation-for="SecondDose" class="text-danger"></span>
+            </div>            
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
